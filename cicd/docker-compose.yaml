@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=story-server
+    volumes:
+      - story-server-PGvolume:/var/lib/postgresql/data
+    restart: always
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8082:8080"
+    depends_on:
+      - postgres
+  # ollama:
+  #   image: ollama-custom
+  #   container_name: aiInstance
+  #   ports:
+  #     - "11434:11434"
+volumes:
+  story-server-PGvolume:

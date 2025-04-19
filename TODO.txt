@@ -1,0 +1,4 @@
+TODO
+1. Fix error with app.go exiting with error code 0
+2. Test database connection
+3. Test AI Generation

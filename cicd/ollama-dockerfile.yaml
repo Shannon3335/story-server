@@ -1,0 +1,9 @@
+FROM ollama/ollama
+
+COPY ./ollama-entrypoint.sh .
+
+RUN chmod +x ollama-entrypoint.sh
+
+EXPOSE  11434
+
+ENTRYPOINT ["/bin/bash","ollama-entrypoint.sh"]
